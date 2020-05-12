@@ -1,0 +1,12 @@
+.aside{
+    border: 1px solid black;
+    width: 22%;
+    height:85vh;
+    .img{
+      display:flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width:20%;
+    }  
+  }

@@ -1,0 +1,23 @@
+.container{
+  width:95vw;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 2.5%;
+
+  .homepage{
+    width:77%;
+    height:85vh;
+    display:flex;
+    border:1px solid black;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-image:url(../../img/coffee.jpeg);
+    background-size:cover;
+    opacity:0.5;
+    background-position:bottom;
+    background-color:yellowgreen;
+  }
+}

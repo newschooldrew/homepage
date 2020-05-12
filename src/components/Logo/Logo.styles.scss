@@ -1,0 +1,15 @@
+img{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width:40%;
+
+    &.active {
+      background-color: gray;
+    }
+    &.inactive{
+      display: block;
+    }
+
+  }

@@ -1,0 +1,55 @@
+
+  $color-primary:#f9ed69; 
+  $color-secondary: #f08a5d;
+  $color-tertiary: #f08a5d;
+  $color-dark:#333;
+  $width-button:150px;
+  
+  @mixin clearfix{
+    &::after{
+  content:"";
+  clear:both;
+  display:table;
+  }
+}
+
+@mixin styleLinkText($color) { 
+  text-decoration:none;
+  text-transform:uppercase;
+  color:$color;
+}
+
+
+*{
+    margin:0;
+    padding:0;
+  }
+
+.navbar{
+    height:10vh;
+  margin:30px;
+  width: 95vw;
+  background-color:$color-primary;
+  @include clearfix;
+
+  
+  .navigation{
+    list-style:none;
+    float:left;
+    width:100vw;
+      li{
+        border:1px solid;
+        display:inline-block; //sitting side by side
+        margin-left:30px;
+        width:30%;
+        text-align: center;
+
+          &:first-child {
+          margin:0;
+        }
+        a:link {
+          @include styleLinkText($color-dark);
+        }
+      }
+  }
+}

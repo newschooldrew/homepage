@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useCallback, useContext, useReducer } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Homepage from './components/Homepage/Homepage.component';
+import Projectpage from './components/Projectpage/Projectpage.component';
+import Navbar from './components/Navbar/Navbar.component';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
+import Context from './context'
+import Reducer from './reducer'
+
+const Routes = () =>{
+  const INITIAL_STATE = useContext(Context);
+  const [state,dispatch] = useReducer(Reducer, INITIAL_STATE)
+  return (
+  <BrowserRouter>
+    <Context.Provider value={{state,dispatch}}>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Homepage}/>
+        <Route path="/:project" component={Projectpage}/>
+        <Redirect to='/' />
+      </Switch>
+    </Context.Provider>
+  </BrowserRouter>
+  )
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Routes />,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
