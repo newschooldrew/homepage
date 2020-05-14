@@ -11,18 +11,3 @@ const Logo = ({ ix, clickImage, active,src }) =>{
 }
 
 export default Logo;
-
-// const {state,dispatch} = useContext(Context);
-// const {logos} = state;
-// console.log(logos)
-
-// const handleClick = (e) =>{
-//     const {name} = e.target;
-//     dispatch({type:"ADD_ITEM",payload:name})
-//     console.log(state.logos[name].active)
-//  }
-//     return (
-//         <div >
-//             <img src={imgUrl} name={name} onClick={state => state => !state.active} className={active ? "active" : "inactive"}/>
-//         </div>
-//       )

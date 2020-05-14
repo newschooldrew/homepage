@@ -8,71 +8,38 @@ import _ from 'lodash'
 const Homepage = () => {
   const {state} = useContext(Context)
   const {projects,logos} = state;
+  console.log(projects)
+  let uniq = [];
+  const output = (
 
-  useEffect(()=>{
-    console.log(logos)
-  },[logos])
-
+    logos.reduce((acc, logo) => {
+      if (logo.active) {
+          Object.values(projects).forEach((proj) => {
+             if (Object.values(proj.items).includes(logo.name)) {
+               console.log(acc)
+               
+               acc.push((<Project title={proj.title} routeName={proj.routeName} items={proj.items} description={proj.description}/>));
+             }
+          });
+          acc = acc.reduce(function (p, c) {
+            if (!p.some(function (el) { return el.props.title === c.props.title; })) p.push(c);
+            return p;
+          }, []);
+      }
+        return acc
+  }, [])
+  
+  )
+  console.log(output)
   return (
     <>
-    <div className="container">
+  <div className="container">
     <Language />
-    <div className="homepage">
-    {/* {Object.values(logos).map(({active,id,name}) =>{
-      return(
-        Object.values(projects).map(({id,items}) => {
-          
-            console.log(Object.keys(items).filter(function(k){
-                return items[k] == "sagas"
-            }))
-          return (<div> 
-                    {items.map(item =>(
-                      <div>{item}</div>
-                    ))}
-                  </div>
-                )
-          })
-        )
-      }
+  <div className="homepage">
+{output}
 
-   )} */}
-          {logos.map(logo => {
-
-          // console.log(logo.active)
-
-          let objs = Object.values(projects)
-          let projs = Object.values(projects);
-          // let filtered
-          let filterTwo;
-          let filteredValue;
-          console.log(filterTwo)
-          
-          if(logo.active == true){
-            // filtered = objs.filter( row => row.title == logo.name);
-            console.log(logo.name)
-            filterTwo = projs.filter(({items}) => Object.values(items).includes(logo.name))
-            filteredValue = filterTwo[0]
-
-        return(
-              <Project 
-                  key={filteredValue.id} 
-                  title={filteredValue.title} 
-                  description={filteredValue.description}
-                  items={filteredValue.items} />
-            )
-          }
-
-        }
-      )
-    }
-    {/* <div>{filtered[0].title}</div> */}
-       {/* {Object.values(projects).map(({id,...props}) => {
-          return <Project key={id} {...props}  />
-        }
-      )
-    } */}
-    </div>
-    </div>
+</div>
+  </div>
   </>
 )}
 
