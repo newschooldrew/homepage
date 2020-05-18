@@ -1,8 +1,7 @@
-
-  $color-primary:#f9ed69; 
   $color-secondary: #f08a5d;
   $color-tertiary: #f08a5d;
   $color-dark:#333;
+  $color-white:#fff;
   $width-button:150px;
   
   @mixin clearfix{
@@ -26,10 +25,9 @@
   }
 
 .navbar{
-    height:10vh;
-  margin:30px;
+  height: 9vh;
+  margin: 20px 0px 0 17px;
   width: 95vw;
-  background-color:$color-primary;
   @include clearfix;
 
   
@@ -41,15 +39,21 @@
         border:1px solid;
         display:inline-block; //sitting side by side
         margin-left:30px;
-        width:30%;
+        width:29.5%;
         text-align: center;
+        margin:0 1.2%;
+        padding: 15px 0;
+        background-color: dodgerblue; 
+        font-family: 'Gentium Basic', serif;
+        font-size: 1.25em;
+        
+        @include styleLinkText($color-white);
 
-          &:first-child {
-          margin:0;
+        &:hover{
+          background-color:$color-white;
+          color:dodgerblue;
         }
-        a:link {
-          @include styleLinkText($color-dark);
-        }
+        
       }
   }
 }

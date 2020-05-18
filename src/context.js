@@ -6,7 +6,9 @@ const Context = createContext({
     projects:PROJECT_DATA,
     logos:IMG_DATA,
     selectedProjects:[],
-    active:false
+    active:false,
+    showText:true,
+    showTooltip:false
 })
 
 export default Context;

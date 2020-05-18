@@ -1,15 +1,35 @@
-img{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width:40%;
+@mixin img-adjustments {
+  justify-content: center;
+  background-position:center;
+  align-items: center;
+}
 
-    &.active {
-      background-color: gray;
-    }
+
+.logoContainer {
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &.active{
+    background-color: gray;
+    margin:6px;
+    width:70%;
+    border:2px solid black;
+    @include img-adjustments;
+  }
+.logoImg{
+    width:70%;
+    margin:6px;
+    @include img-adjustments;
+
     &.inactive{
       display: block;
     }
 
+    &:hover{
+      width:70%;
+      cursor: pointer;
+      background-color: grey;
+    }
   }
+}

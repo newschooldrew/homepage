@@ -1,3 +1,10 @@
+$text-white:#fff;
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
 .container{
   width:95vw;
   display:flex;
@@ -5,6 +12,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 2.5%;
+  font-family: 'Gentium Basic', serif;
+  font-size:62.5%;
+  animation-name: fade;
+  animation-duration: .75s;
+  
 
   .homepage{
     width:77%;
@@ -16,8 +28,29 @@
     justify-content: space-between;
     background-image:url(../../img/coffee.jpeg);
     background-size:cover;
-    opacity:0.5;
+    opacity:0.75;
     background-position:bottom;
-    background-color:yellowgreen;
+    text-decoration: none;
+    font-size: 2.55em;
+    overflow: scroll;
+    letter-spacing: 2.75px;
+    
+    &.clicked{
+      background-image:none;
+      background-color: tan;
+    }
+
+    .hp_text{
+      width:100%;
+      position: relative;
+      top: 40%;
+	    bottom:50%;
+      text-align: center;
+      color:$text-white;
+    }
+    .output{
+      width: 100%;
+    }
+
   }
 }

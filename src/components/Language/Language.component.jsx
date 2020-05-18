@@ -18,10 +18,11 @@ const Language = () =>{
           [ix]: { $apply: x => ({ id:x.id,name:x.name, imgUrl:x.imgUrl,active: !x.active}) }
         })
         setImages(newData);
-    dispatch({type:"SET_LOGOS",payload:newData})
+        dispatch({type:"SET_LOGOS",payload:newData})
       }
-        return (
-            <aside className="aside">
+      return (
+        <aside className="aside">
+        <p classname="asideTxt">CLICK on the icons to see the projects</p>
             { images.map((image, ix) =>
                 <Logo
                   key={image.id}
@@ -32,22 +33,6 @@ const Language = () =>{
                   clickImage={clickImage} />) }
             </aside>
         );
-
-    // return(
-    // <aside className="aside">
-    // Choose your language:
-    // {Object.values(logos).map(({id,props}) => (
-    //         <Logo key={id} {...props}/>
-    //         )
-    //     )
-    //   }
-    {/* <img onClick={e => handleClick(e)} name="apolloActive" className="active" src={apollo} />
-    <img onClick={e => handleClick(e)} name="graphqlActive" className="active" src={graphql} /> */}
-    {/* <img onClick={() => setMongoActive(!mongoActive)} name="mongoActive" className={mongoActive ? "active": "inactive"} src={mongoPng} />
-    <img onClick={() => setReduxActive(!reduxActive)} name="reduxActive" className={reduxActive ? "active": "inactive"} src={reduxPng} />
-    <img onClick={() => setReactActive(!reactActive)} name="reactActive" className={reactActive ? "active": "inactive"} src={reactImg} />     */}
-    {/* </aside> */}
-
 }
 
 export default Language;

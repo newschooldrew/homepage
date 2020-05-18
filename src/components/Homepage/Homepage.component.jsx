@@ -1,13 +1,28 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Project from '../Project/Project.component'
 import Context  from "../../context"
 import './Homepage.styles.scss'
 import Language from '../Language/Language.component'
+import update from 'react-addons-update';
 import _ from 'lodash'
 
 const Homepage = () => {
-  const {state} = useContext(Context)
-  const {projects,logos} = state;
+  const {state,dispatch} = useContext(Context)
+  const {projects,logos,showText} = state;
+  const [textBool, setTextBool] = useState(true)
+useEffect(()=>{
+  {
+    const activeLogos = logos.filter(logo =>{
+    return logo.active == true
+     })
+     if(activeLogos.length > 0) {
+      setTextBool(false)
+     } else{
+      setTextBool(true)
+     }
+}
+},[logos])
+
   console.log(projects)
   let uniq = [];
   const output = (
@@ -16,9 +31,9 @@ const Homepage = () => {
       if (logo.active) {
           Object.values(projects).forEach((proj) => {
              if (Object.values(proj.items).includes(logo.name)) {
-               console.log(acc)
+               console.log(proj.avatar)
                
-               acc.push((<Project title={proj.title} routeName={proj.routeName} items={proj.items} description={proj.description}/>));
+               acc.push(<Project avatar={proj.avatar} title={proj.title} imgUrl={proj.imgUrl} routeName={proj.routeName} items={proj.items} description={proj.description}/>);
              }
           });
           acc = acc.reduce(function (p, c) {
@@ -35,8 +50,10 @@ const Homepage = () => {
     <>
   <div className="container">
     <Language />
-  <div className="homepage">
-{output}
+  {/* <div className="homepage"> */}
+  <div className={`${textBool ? " " : "clicked"} homepage`}>
+    {textBool ? (<div className="hp_text">Click on the Languages to the Left to see the projects I've created </div>) : ''}
+    <div className="output">{output }</div>
 
 </div>
   </div>
@@ -44,9 +61,3 @@ const Homepage = () => {
 )}
 
 export default Homepage;
-
-// {Object.values(projects).map(({id,...props}) => (
-//   <Project key={id} {...props}  />
-// )
-// )
-// }

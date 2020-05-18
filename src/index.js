@@ -2,6 +2,7 @@ import React, { useCallback, useContext, useReducer } from 'react';
 import ReactDOM from 'react-dom';
 import Homepage from './components/Homepage/Homepage.component';
 import Projectpage from './components/Projectpage/Projectpage.component';
+import Resumepage from './components/Resumepage/Resumepage.component';
 import Navbar from './components/Navbar/Navbar.component';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 import Context from './context'
@@ -16,6 +17,7 @@ const Routes = () =>{
       <Navbar />
       <Switch>
         <Route exact path="/" component={Homepage}/>
+        <Route path="/resume" component={Resumepage}/>
         <Route path="/:project" component={Projectpage}/>
         <Redirect to='/' />
       </Switch>
