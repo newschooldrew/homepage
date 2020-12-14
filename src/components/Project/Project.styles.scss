@@ -7,9 +7,6 @@
     width:100%;
     height:200px;
     display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    // justify-content: center;
     text-decoration:none;
     border: 1px solid black;
     opacity:1;
@@ -19,6 +16,17 @@
     cursor: pointer;
     animation-name: example;
     animation-duration: 1.65s;
+
+    &:hover {
+        opacity:1;
+        
+   & .title{
+        opacity:1;
+    }
+    & .description{
+        opacity:1;
+        }
+    }
 
     .imgContainer{
         width:25%;
@@ -31,16 +39,6 @@
         }
     }
 
-    &:hover {
-        opacity:1;
-        
-   & .title{
-        opacity:1;
-    }
-    & .description{
-        opacity:1;
-        }
-    }
        .details{
            width:70%;
            display: flex;
@@ -48,31 +46,36 @@
            justify-content: center;
            padding: 10px 20px;
 
-           &:link{
-            text-decoration: none;
-        }
-
-            .title{
-                text-align: center;
-                text-transform:uppercase;
-                }
-                .logoContainer{
-                    display: flex;
-                    flex-direction: row;
+                .detailsContainer{
                     justify-content: center;
+                    align-items: center;
                     width: 100%;
-                
-                .logos{
-                    padding:5px;
-                    object-fit: contain;
-                    width:25%;
-                    color:black;
-                    float:left;
+
+                    .logoTitle{
+                        margin:5% 0 0 0;
+                        font-size: .5em;
+                        text-align: center;
+                        // width: 100%;
                     }
                 }
+                .logosContainer{
+                    display: flex;
+                    flex-direction: row;
+                    width:100%;
+                    justify-content: center;
+                    margin:1% 0 0 0;
+
+                    .logos{
+                        padding:5px;
+                        object-fit: contain;
+                        width:15%;
+                        color:black;
+                        }
+                    }
+                
             .description{
                 text-align: center;
-                padding: 5px;
+                padding: 5% 0 0 0;
                 }
         }
     }

@@ -22,7 +22,8 @@ const Language = () =>{
       }
       return (
         <aside className="aside">
-        <p classname="asideTxt">CLICK on the icons to see the projects</p>
+        <p classname="asideTxt">CLICK ON A LANGUAGE</p>
+        <div className="logoContainer">
             { images.map((image, ix) =>
                 <Logo
                   key={image.id}
@@ -31,6 +32,7 @@ const Language = () =>{
                   src={image.imgUrl}
                   active={image.active}
                   clickImage={clickImage} />) }
+          </div>
             </aside>
         );
 }

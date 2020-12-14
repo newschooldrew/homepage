@@ -23,7 +23,6 @@ const Navbar = ({history}) =>{
                 <Link to="resume">
                     <li>Resume</li>
                 </Link>
-                <li>Individual Links</li>
             </ul>
         </nav>
     </>

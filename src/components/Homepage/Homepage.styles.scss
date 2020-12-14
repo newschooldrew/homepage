@@ -1,4 +1,5 @@
 $text-white:#fff;
+$text-black:#000;
 
 @keyframes fade {
   from {opacity: 0;}
@@ -12,22 +13,23 @@ $text-white:#fff;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 0 2.5%;
-  font-family: 'Gentium Basic', serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
   font-size:62.5%;
   animation-name: fade;
   animation-duration: .75s;
-  
+  padding: 1.5% 0 0 1.5%;
 
   .homepage{
     width:77%;
-    height:85vh;
+    height:95vh;
     display:flex;
     border:1px solid black;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    background-image:url(../../img/coffee.jpeg);
-    background-size:cover;
+    background-image:url(../../img/res.png);
+    // background-size:cover;
     opacity:0.75;
     background-position:bottom;
     text-decoration: none;
@@ -36,14 +38,14 @@ $text-white:#fff;
     letter-spacing: 2.75px;
     
     &.clicked{
-      background-image:none;
-      background-color: tan;
+      // background-image:none;
+      // background-color: tan;
     }
 
     .hp_text{
       width:100%;
       position: relative;
-      top: 40%;
+      top: 10%;
 	    bottom:50%;
       text-align: center;
       color:$text-white;
